@@ -1,73 +1,156 @@
-# Cleopatra [live demo](https://moesaid.github.io/cleopatra/)
-### Cleopatra – Clean & Minimal tailwind css Admin Dashboard Template
-
-![image](https://github.com/moesaid/cleopatra/raw/master/dist/img/index.png)
-![image](https://github.com/moesaid/cleopatra/raw/master/dist/img/index-1.png)
 
 
-## Status
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://moesaid.com/) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://twitter.com/MohamedSaid__)  [![GitHub tag](https://img.shields.io/github/tag/moesaid/cleopatra.svg)](https://GitHub.com/moesaid/cleopatra/tags/) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) 
+# **BlogCMS – Backend & Admin Dashboard**
 
-
-
->Looking for an admin dashboard that was made with you in mind, look no further than Cleopatra Admin Template. A powerful admin dashboard template built on **tailwind css**, Cleopatra is **developer-first** Template , rich with features and highly customizable. i'am followed the highest industry standards to bring you the very best admin template that is not only fast and easy to use but highly scalable.
-
+*A procedural PHP Content Management System for managing blog articles, users, comments, and categories.*
 
 ---
-**Cleopatra** has been carefully coded with clear comments in all of its JS, SASS and HTML files. SASS has been used to increase code customizability.
 
+## **Overview**
 
+**BlogCMS** is a lightweight & secure Content Management System built with **PHP procédural**, **MySQL** and **PDO**.
+It includes a full **Admin Dashboard**, a **role-based system**, and complete **CRUD functionalities** for managing:
 
-## Installation
+* Articles
+* Categories
+* Users
+* Comments
 
-There are multiple ways to install Cleopatra.
+The project is designed as part of a backend development brief and aims to demonstrate clean structure, security, and backend features.
 
-<br>
-<br>
+---
 
-**Download:**
+## **Features**
 
+### **Authentication & Security**
 
+* Secure login system
+* Password hashing with `password_hash()` (bcrypt)
+* Session management
+* Role system: `admin`, `editor`, `author`, `user`
+* Protection against:
 
-<br>
+  * SQL Injection (PDO prepared statements)
+  * XSS (htmlspecialchars)
+  * Unauthorized access (role-based permissions)
 
-**Using The Command Line:**
+---
 
-**via npm**
+### 🛠️ **Admin Dashboard**
 
-`npm install @moesaid/cleopatra`
+* Overview statistics
+* CRUD:
 
-<br>
-<br>
+  * Categories
+  * Articles
+  * Users
+  * Comments (moderation)
+* Pagination on lists
+* Article search engine
+* Image upload for posts
 
-**Via Git**
+---
 
-*Clone to your machine*
+### **Frontend (Public)**
 
-`git clone https://github.com/moesaid/cleopatra.git`
+* Display published articles
+* Article detail page
+* Leave comments (logged-in users only)
+* Filter by category
+* Search articles
 
-<br>
-<br>
-<br>
+---
 
-**Compile dist files**
+## 🗂 **Project Structure**
 
-your work station is the src file 
-you can list files as you wish **( file get compile with gulp )**
+```
+/config
+    config.php        → global configuration
+    db.php            → PDO connection
 
-- first run `npm install`
-- Optional: `npm run dev` (developer mode, autocompile with **browsersync** support for live demo) , will open on port `8080` , `http://localhost:8080/` change that as you want from **gulpfile.js**
-- `npm run build` (compile css/js files for production)
+/controllers
+    articles/
+    categories/
+    users/
+    comments/
 
+/models
+    Article.php
+    Category.php
+    User.php
+    Comment.php
 
-<br>
-<br>
+/views
+    admin/
+        dashboard.php
+        articles/
+        categories/
+        users/
+        comments/
+    public/
+        home.php
+        article.php
+        login.php
 
+/public
+    css/
+    js/
+    uploads/          → uploaded images
 
-## License
+/functions
+    auth.php          → login/logout, role checks
+    helpers.php       → sanitization, redirects
+```
 
-Cleopatra is an open source project by 
-[Mohamed Said](https://moesaid.com) that is licensed under MIT. 
+---
 
-[Mohamed Said](https://moesaid.com) reserves the right to change the license of future releases.
+## **Technologies Used**
 
+### **Backend**
+
+* PHP 8+
+* PDO (prepared statements)
+* MySQL
+
+### **Frontend**
+
+* HTML5, CSS3
+* TailwindCSS
+
+---
+
+## **Main CRUD Functionalities**
+
+### **Admin**
+
+* Manage all content
+* Moderate comments
+* Manage users & roles
+
+### **Editor**
+
+* Manage all articles & categories
+* No user management
+
+### **Author**
+
+* Create/Edit/Delete *own* articles
+* Comment on posts
+
+### **User**
+
+* View published articles
+* Post comments
+
+---
+
+## **Security Measures**
+
+* Password hashing (bcrypt)
+* Input sanitization
+* Prepared SQL statements
+* Limited file upload types
+* Role-based route protection
+* Session regeneration
+
+---
