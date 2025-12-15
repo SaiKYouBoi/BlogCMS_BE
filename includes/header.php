@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/auth.php';
-// require_once __DIR__ . '/functions.php';
+
 $pdo = getDBConnection();
 ?>
 <!DOCTYPE html>
@@ -34,9 +34,7 @@ $pdo = getDBConnection();
                         <i class="fas text-[28px] fa-blog mr-2"></i>BlogCMS
                     </a>
                     <div class="hidden md:flex space-x-4">
-                        <a href="/blogcms/public/posts.php" class="hover:text-blue-200">
-                            <i class="fas fa-newspaper mr-1"></i> Articles
-                        </a>
+                        
                         <?php if (Auth::isLoggedIn()): ?>
                             <?php if (Auth::isAdmin() || Auth::isEditor()): ?>
                                 <a href="/blogcms/dashboard.php" class="hover:text-blue-200">

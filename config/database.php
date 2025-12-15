@@ -2,7 +2,7 @@
 // Database configuration
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'BLOGCMC');
-define('DB_USER', 'root');
+define('DB_USER', 'saikyouboi');
 define('DB_PASS', 'ilias1234');
 
 // Create connection
