@@ -1,4 +1,3 @@
-```md
 # BlogCMS – Admin Dashboard & Backend
 
 ## Project Overview
@@ -79,5 +78,3 @@ The application is developed using **PHP 8 (procedural)** and a **relational dat
 - Clean and readable code structure
 
 ---
-
-```
