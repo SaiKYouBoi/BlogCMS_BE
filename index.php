@@ -16,7 +16,7 @@ $Posts = $stmt->fetchAll();
     <!-- Main Content -->
     <div class="lg:col-span-3">
         <!-- Posts -->
-        <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="bg-white rounded-lg w-[90%] shadow p-6 m-auto mt-6 mb-6">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-2xl font-bold text-gray-800">
                     Articles

@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/auth.php';
-
-$pdo = getDBConnection();
+    include_once __DIR__ . "/../config/database.php";
+    $pdo = getDBConnection();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,48 +33,15 @@ $pdo = getDBConnection();
                     <a href="/blogcms/index.php" class="text-2xl text-[#121212] font-bold">
                         <i class="fas text-[28px] fa-blog mr-2"></i>BlogCMS
                     </a>
-                    <div class="hidden md:flex space-x-4">
-                        
-                        <?php if (Auth::isLoggedIn()): ?>
-                            <?php if (Auth::isAdmin() || Auth::isEditor()): ?>
-                                <a href="/blogcms/dashboard.php" class="hover:text-blue-200">
-                                    <i class="fas fa-tachometer-alt mr-1"></i> Dashboard
-                                </a>
-                            <?php endif; ?>
-                            <?php if (Auth::isAuthor()): ?>
-                                <a href="/blogcms/author/my_posts.php" class="hover:text-blue-200">
-                                    <i class="fas fa-file-alt mr-1"></i> My Posts
-                                </a>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                    </div>
+                    
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <?php if (Auth::isLoggedIn()): ?>
-                        <span class="hidden md:inline">
-                            Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>
-                            <span class="bg-blue-500 text-xs px-2 py-1 rounded ml-2">
-                                <?php echo ucfirst($_SESSION['role']); ?>
-                            </span>
-                        </span>
-                        <a href="/blogcms/logout.php" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded">
-                            <i class="fas fa-sign-out-alt mr-1"></i> Logout
-                        </a>
-                    <?php else: ?>
+
                         <a href="/blogcms/login.php" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded">
                             <i class="fas fa-sign-in-alt mr-1"></i> Login
                         </a>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </nav>
-    
-    <!-- Flash Messages -->
-    <div class="container mx-auto px-4 mt-4">
-        <?php //echo getFlashMessage(); ?>
-    </div>
-    
-    <!-- Main Content -->
-    <div class="container mx-auto px-4 py-6">

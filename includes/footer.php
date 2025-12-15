@@ -24,26 +24,25 @@
                                 <i class="fas fa-chevron-right mr-2 text-xs"></i>All Posts
                             </a>
                         </li>
-                        <?php if (Auth::isLoggedIn()): ?>
+                        
                             <li>
                                 <a href="/blogcms/dashboard.php" class="text-gray-400 hover:text-white">
                                     <i class="fas fa-chevron-right mr-2 text-xs"></i>Dashboard
                                 </a>
                             </li>
-                            <?php if (Auth::isAuthor()): ?>
+                            
                                 <li>
                                     <a href="/blogcms/author/my_posts.php" class="text-gray-400 hover:text-white">
                                         <i class="fas fa-chevron-right mr-2 text-xs"></i>My Posts
                                     </a>
                                 </li>
-                            <?php endif; ?>
-                        <?php else: ?>
+                          
                             <li>
                                 <a href="/blogcms/login.php" class="text-gray-400 hover:text-white">
                                     <i class="fas fa-chevron-right mr-2 text-xs"></i>Login
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        
                     </ul>
                 </div>
                 
