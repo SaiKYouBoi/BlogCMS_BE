@@ -12,9 +12,17 @@ $stmt->execute();
 $Posts = $stmt->fetchAll();
 
 ?>
+<div class="w-[90%] m-auto mt-6">
+    <a href="/categories.php"
+   class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
+    <i class="fas fa-sign-in-alt mr-2"></i>
+    Categories
+</a>
+</div>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <!-- Main Content -->
     <div class="lg:col-span-3">
+        
         <!-- Posts -->
         <div class="bg-white rounded-lg w-[90%] shadow p-6 m-auto mt-6 mb-6">
             <div class="flex justify-between items-center mb-6">
@@ -31,7 +39,8 @@ $Posts = $stmt->fetchAll();
                                 <?php echo htmlspecialchars($post['category_name']); ?>
                             </span>
                             <h3 class="font-bold text-lg mb-2">
-                                <a class="hover:text-blue-600">
+                                <a href="public/view_post.php?id=<?php echo $post['id_post']; ?>" 
+                                   class="hover:text-blue-600">
                                     <?php echo htmlspecialchars($post['title']); ?>
                                 </a>
                             </h3>

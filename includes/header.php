@@ -1,5 +1,7 @@
 <?php
     include_once __DIR__ . "/../config/database.php";
+    require_once __DIR__ . '/functions.php';
+    session_start();
     $pdo = getDBConnection();
 ?>
 
@@ -37,11 +39,19 @@
                 </div>
                 
                 <div class="flex items-center space-x-4">
-
-                        <a href="/blogcms/login.php" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded">
+                    
+                        <a href="/blogcms/login.php" class="bg-[#2E2E2E] hover:bg-[#2E2E2E] px-4 py-2 rounded">
                             <i class="fas fa-sign-in-alt mr-1"></i> Login
                         </a>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Flash Messages -->
+    <div class="container mx-auto px-4 mt-4">
+        <?php echo getFlashMessage(); ?>
+    </div>
+
+      <!-- Main Content -->
+    <div class="container mx-auto px-4 py-6">
