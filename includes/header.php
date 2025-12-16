@@ -1,7 +1,7 @@
 <?php
+    require_once __DIR__ . '/auth.php';
     include_once __DIR__ . "/../config/database.php";
     require_once __DIR__ . '/functions.php';
-    session_start();
     $pdo = getDBConnection();
 ?>
 
@@ -39,14 +39,26 @@
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    
-                        <a href="/blogcms/login.php" class="bg-[#2E2E2E] hover:bg-[#2E2E2E] px-4 py-2 rounded">
+                    <?php if (isLoggedIn()): ?>
+                        <span class="hidden text-black md:inline">
+                            Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>
+                            <span class="bg-blue-500 text-xs px-2 py-1 rounded ml-2">
+                                <?php echo ucfirst($_SESSION['role']); ?>
+                            </span>
+                        </span>
+                        <a href="/logout.php" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded">
+                            <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                        </a>
+                    <?php else: ?>
+                        <a href="/login.php" class="bg-[#2E2E2E] hover:bg-[#2E2E2E] px-4 py-2 rounded">
                             <i class="fas fa-sign-in-alt mr-1"></i> Login
                         </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </nav>
+
 
     <!-- Flash Messages -->
     <div class="container mx-auto px-4 mt-4">
@@ -55,3 +67,4 @@
 
       <!-- Main Content -->
     <div class="container mx-auto px-4 py-6">
+    

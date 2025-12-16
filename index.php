@@ -17,7 +17,20 @@ $Posts = $stmt->fetchAll();
    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
     <i class="fas fa-sign-in-alt mr-2"></i>
     Categories
-</a>
+    </a>
+
+    <a href="/categories.php"
+   class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
+    <i class="fas fa-sign-in-alt mr-2"></i>
+    Dashboard
+    </a>
+
+    <a href="/categories.php"
+   class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
+    <i class="fas fa-sign-in-alt mr-2"></i>
+    Categories
+    </a>
+
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <!-- Main Content -->
