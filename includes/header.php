@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . '/auth.php';
-    include_once __DIR__ . "/../config/database.php";
+    include_once __DIR__ . "/config/database.php";
     require_once __DIR__ . '/functions.php';
     $pdo = getDBConnection();
 ?>

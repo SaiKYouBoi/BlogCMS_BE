@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../config/database.php';
 
-// Connect to database
+// connect to database
 $pdo = getDBConnection();
 
 // ------------------- LOGIN -------------------
@@ -22,12 +22,12 @@ function login($email, $password) {
     return false;
 }
 
-// ------------------- CHECK LOGIN -------------------
+//check logiin
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
 }
 
-// ------------------- ROLE CHECKS -------------------
+//role chekcs
 function isAdmin() {
     return isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
 }
@@ -40,7 +40,7 @@ function isAuthor() {
     return isset($_SESSION['role']) && in_array($_SESSION['role'], ['author', 'editor', 'admin']);
 }
 
-// ------------------- GET USER INFO -------------------
+//user info
 function getUserId() {
     return $_SESSION['user_id'] ?? null;
 }
@@ -49,14 +49,14 @@ function getUserRole(): mixed {
     return $_SESSION['role'] ?? 'guest';
 }
 
-// ------------------- LOGOUT -------------------
+
 function logout() {
     session_destroy();
     header('Location: ../index.php');
     exit();
 }
 
-// ------------------- REGISTER NEW USER -------------------
+
 function register($username, $email, $password, $role) {
     global $pdo;
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -64,3 +64,4 @@ function register($username, $email, $password, $role) {
     return $stmt->execute([$username, $email, $hashedPassword, $role]);
 }
 ?>
+

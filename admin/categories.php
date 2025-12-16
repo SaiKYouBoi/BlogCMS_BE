@@ -1,6 +1,12 @@
 <?php
-require_once __DIR__ . "/includes/header.php";
+require_once '../includes/header.php';
 
+// Redirect if not admin
+if (!Auth::isAdmin()) {
+    redirect('../index.php', 'Access denied!', 'error');
+}
+
+// Handle category operations
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['add_category'])) {
         $name = sanitize($_POST['name']);
@@ -64,8 +70,7 @@ if (isset($_GET['edit'])) {
     $editCategory = $stmt->fetch();
 }
 ?>
-
-<div class="max-w-7xl mx-auto mt-6">
+<div class="max-w-7xl mx-auto">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold text-gray-800">
             <i class="fas fa-folder mr-2"></i>Categories Management
@@ -85,6 +90,7 @@ if (isset($_GET['edit'])) {
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Posts</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                     </tr>
                 </thead>
@@ -105,7 +111,11 @@ if (isset($_GET['edit'])) {
                                     <?php if (strlen($category['description']) > 100): ?>...<?php endif; ?>
                                 </div>
                             </td>
-                           
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                    <?php echo $category['post_count']; ?> posts
+                                </span>
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <a href="?edit=<?php echo $category['id_category']; ?>" 
                                    class="text-yellow-600 hover:text-yellow-900 mr-3">

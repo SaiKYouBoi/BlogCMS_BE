@@ -12,25 +12,31 @@ $stmt->execute();
 $Posts = $stmt->fetchAll();
 
 ?>
-<div class="w-[90%] m-auto mt-6">
+<?php if (isLoggedIn()): ?>
+<?php if (isAdmin() || isEditor()): ?>
+<div class="w-[90%] m-auto mt-6 flex flex-row gap-4">
     <a href="/categories.php"
    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
-    <i class="fas fa-sign-in-alt mr-2"></i>
+    <i class="fas fa-newspaper mr-1"></i> 
     Categories
     </a>
+<?php endif; ?>
 
-    <a href="/categories.php"
+<?php if (isAdmin() || isEditor()): ?>
+    <a href="/dashboard.php"
    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
-    <i class="fas fa-sign-in-alt mr-2"></i>
+    <i class="fas fa-tachometer-alt mr-1"></i>
     Dashboard
     </a>
-
+<?php endif; ?>
+<?php if (isAuthor()): ?>
     <a href="/categories.php"
    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
-    <i class="fas fa-sign-in-alt mr-2"></i>
-    Categories
+    <i class="fas fa-file-alt mr-1"></i>
+    My Posts
     </a>
-
+<?php endif; ?>
+<?php endif; ?>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <!-- Main Content -->
@@ -52,7 +58,7 @@ $Posts = $stmt->fetchAll();
                                 <?php echo htmlspecialchars($post['category_name']); ?>
                             </span>
                             <h3 class="font-bold text-lg mb-2">
-                                <a href="public/view_post.php?id=<?php echo $post['id_post']; ?>" 
+                                <a href="visitor/view_post.php?id=<?php echo $post['id_post']; ?>" 
                                    class="hover:text-blue-600">
                                     <?php echo htmlspecialchars($post['title']); ?>
                                 </a>

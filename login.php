@@ -1,16 +1,18 @@
 <?php
 require_once 'includes/header.php';
 
-// Redirect if already logged in
+
+
 if (isLoggedIn()) {
     redirect('index.php');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
     $email = sanitize($_POST['email']);
     $password = $_POST['password'];
     
-    if ($auth->login($email, $password)) {
+    if (login($email, $password)) {
         redirect('index.php', 'Login successful!');
     } else {
         $error = "Invalid email or password!";
