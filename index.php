@@ -12,41 +12,19 @@ $stmt->execute();
 $Posts = $stmt->fetchAll();
 
 ?>
-<?php if (isLoggedIn()): ?>
-<?php if (isAdmin() || isEditor()): ?>
-<div class="w-[90%] m-auto mt-6 flex flex-row gap-4">
-    <a href="/categories.php"
-   class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
-    <i class="fas fa-newspaper mr-1"></i> 
-    Categories
-    </a>
-<?php endif; ?>
 
-<?php if (isAdmin() || isEditor()): ?>
-    <a href="/dashboard.php"
-   class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
-    <i class="fas fa-tachometer-alt mr-1"></i>
-    Dashboard
-    </a>
-<?php endif; ?>
-<?php if (isAuthor()): ?>
-    <a href="/categories.php"
-   class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-5 py-2 rounded-md font-medium shadow-sm transition duration-200">
-    <i class="fas fa-file-alt mr-1"></i>
-    My Posts
-    </a>
-<?php endif; ?>
-<?php endif; ?>
+<div class="w-[90%] m-auto mt-2 flex flex-row gap-4">
+
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <!-- Main Content -->
     <div class="lg:col-span-3">
         
         <!-- Posts -->
-        <div class="bg-white rounded-lg w-[90%] shadow p-6 m-auto mt-6 mb-6">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">
-                    Articles
+        <div class="w-full p-4 mt-6 mb-6">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-6xl ml-1 font-light text-gray-800">
+                    Posts
                 </h2>
             </div>
 
@@ -54,6 +32,7 @@ $Posts = $stmt->fetchAll();
                 <?php foreach ($Posts as $post): ?>
                     <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
                         <div class="p-4">
+                            <img src="https://imgs.search.brave.com/hH9H87HsbBD_tHKCFcqersGyNW4p6etxy9-G3SZ850E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pbmZvbmV0LmZy/L25vdXZlYXV0ZS10/ZWNobm9sb2dpcXVl/LTIwMjQtMi02NWM5/Y2RhOGUwYWE2Lmpw/Zw" alt="" class="mb-2 border rounded-lg">
                             <span class="inline-block bg-[#E6EBDF] text-[#3F4A3E] text-xs px-2 py-1 rounded mb-2">
                                 <?php echo htmlspecialchars($post['category_name']); ?>
                             </span>
