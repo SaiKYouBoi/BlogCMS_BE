@@ -88,7 +88,7 @@ if (isset($_GET['edit'])) {
             <i class="fas fa-users mr-2"></i>Users Management
         </h1>
         <button onclick="document.getElementById('addUserModal').classList.remove('hidden')" 
-                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-4 py-2 rounded-lg">
             <i class="fas fa-plus mr-2"></i>Add User
         </button>
     </div>

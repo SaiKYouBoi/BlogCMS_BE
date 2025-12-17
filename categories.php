@@ -71,7 +71,7 @@ if (isset($_GET['edit'])) {
             <i class="fas fa-folder mr-2"></i>Categories Management
         </h1>
         <button onclick="document.getElementById('addCategoryModal').classList.remove('hidden')" 
-                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-4 py-2 rounded-lg">
             <i class="fas fa-plus mr-2"></i>Add Category
         </button>
     </div>

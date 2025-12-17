@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </h2>
             <p class="mt-2 text-center text-sm text-gray-600">
                 Or
-                <a href="/blogcms/public/posts.php" class="font-medium text-blue-600 hover:text-blue-500">
+                <a href="/blogcms/public/posts.php" class="font-medium text-[#7A8F6A] hover:text-[#5F6B5C]">
                     browse articles as guest
                 </a>
             </p>
@@ -46,13 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div>
                     <label for="email" class="sr-only">Email address</label>
                     <input id="email" name="email" type="email" required 
-                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-[#d5c7b6] focus:border-[#d5c7b6] focus:z-10 sm:text-sm"
                            placeholder="Email address" value="<?php echo $_POST['email'] ?? ''; ?>">
                 </div>
                 <div>
                     <label for="password" class="sr-only">Password</label>
                     <input id="password" name="password" type="password" required 
-                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#d5c7b6] focus:border-[#d5c7b6] focus:z-10 sm:text-sm"
                            placeholder="Password">
                 </div>
             </div>
@@ -67,17 +67,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="text-sm">
-                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                    <a href="#" class="font-medium text-[#7A8F6A] hover:text-[#5F6B5C]">
                         Forgot your password?
                     </a>
                 </div>
             </div>
 
             <div>
-                <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                        <i class="fas fa-sign-in-alt"></i>
-                    </span>
+                <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#8A6F4E] hover:bg-[#6d5538] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d5c7b6]">
                     Sign in
                 </button>
             </div>

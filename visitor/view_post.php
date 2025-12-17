@@ -57,7 +57,7 @@ $comments = $stmt->fetchAll();
     <div class="bg-white rounded-lg shadow p-6 mb-6">
         <div class="flex justify-between items-start mb-4">
             <div>
-                <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded mb-2">
+                <span class="inline-block bg-[#E6EBDF] text-[#3F4A3E] text-sm px-3 py-1 rounded mb-2">
                     <?php echo htmlspecialchars($post['category_name']); ?>
                 </span>
                 <h1 class="text-3xl font-bold text-gray-800 mb-2">
@@ -66,7 +66,7 @@ $comments = $stmt->fetchAll();
             </div>
             <?php if (isAdmin() || isEditor() || (isAuthor() && $post['id_user'] == getUserId())): ?>
                 <a href="../author/create_post.php?edit=<?php echo $post['id_post']; ?>" 
-                   class="text-blue-600 hover:text-blue-800">
+                   class="text-[#3F4A3E] hover:text-[#3F4A3E]">
                     <i class="fas fa-edit"></i> Edit
                 </a>
             <?php endif; ?>
@@ -135,7 +135,7 @@ $comments = $stmt->fetchAll();
                         </p>
                     <?php endif; ?>
                     <button type="submit" name="post_comment" 
-                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
+                            class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-6 py-2 rounded-lg">
                         <i class="fas fa-paper-plane mr-2"></i>Post Comment
                     </button>
                 </div>

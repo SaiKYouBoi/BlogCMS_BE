@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/header.php';
 
-
+// Redirect if not admin/editor
 if (!isAdmin() && !isEditor()) {
     redirect('index.php', 'Access denied!', 'error');
 }
@@ -47,13 +47,13 @@ $recentComments = $stmt->fetchAll();
             </h3>
             <ul class="space-y-2">
                 <li>
-                    <a href="dashboard.php" class="flex items-center p-2 text-blue-600 bg-blue-50 rounded">
+                    <a href="dashboard.php" class="flex items-center p-2 bg-[#E6EBDF] text-[#3F4A3E] rounded">
                         <i class="fas fa-tachometer-alt mr-3"></i>Dashboard
                     </a>
                 </li>
                 <?php if (isAdmin()): ?>
                     <li>
-                        <a href="admin/categories.php" class="flex items-center p-2 hover:bg-gray-100 rounded">
+                        <a href="/categories.php" class="flex items-center p-2 hover:bg-gray-100 rounded">
                             <i class="fas fa-folder mr-3"></i>Categories
                         </a>
                     </li>
@@ -176,7 +176,7 @@ $recentComments = $stmt->fetchAll();
                                 <div>
                                     <h4 class="font-semibold">
                                         <a href="public/view_post.php?id=<?php echo $post['id_post']; ?>" 
-                                           class="hover:text-blue-600">
+                                           class="hover:text-[#6d5538]">
                                             <?php echo htmlspecialchars($post['title']); ?>
                                         </a>
                                     </h4>
@@ -206,7 +206,7 @@ $recentComments = $stmt->fetchAll();
                     <?php endforeach; ?>
                 </div>
                 <div class="mt-4 text-center">
-                    <a href="admin/posts.php" class="text-blue-600 hover:text-blue-800 text-sm">
+                    <a href="admin/posts.php" class="text-[#3F4A3E] hover:text-[#3F4A3E] text-sm">
                         View All Posts <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>
@@ -247,7 +247,7 @@ $recentComments = $stmt->fetchAll();
                     <?php endforeach; ?>
                 </div>
                 <div class="mt-4 text-center">
-                    <a href="admin/comments.php" class="text-blue-600 hover:text-blue-800 text-sm">
+                    <a href="admin/comments.php" class="text-[#3F4A3E] hover:text-[#3F4A3E] text-sm">
                         View All Comments <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>

@@ -135,7 +135,7 @@ if (isset($_GET['edit'])) {
                 Cancel
             </a>
             <button type="submit" 
-                    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
+                    class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-6 py-2 rounded-lg">
                 <i class="fas fa-save mr-2"></i>
                 <?php echo $post ? 'Update Post' : 'Create Post'; ?>
             </button>

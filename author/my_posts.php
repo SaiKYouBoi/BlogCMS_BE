@@ -23,7 +23,7 @@ $posts = $stmt->fetchAll();
             <i class="fas fa-file-alt mr-2"></i>My Posts
         </h1>
         <a href="create_post.php" 
-           class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+           class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-4 py-2 rounded-lg">
             <i class="fas fa-plus mr-2"></i>New Post
         </a>
     </div>
@@ -95,7 +95,7 @@ $posts = $stmt->fetchAll();
                 <i class="fas fa-file-alt text-4xl text-gray-400 mb-4"></i>
                 <p class="text-gray-500 mb-4">You haven't created any posts yet.</p>
                 <a href="create_post.php" 
-                   class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                   class="bg-[#8A6F4E] hover:bg-[#6d5538] text-white px-4 py-2 rounded-lg">
                     <i class="fas fa-plus mr-2"></i>Create Your First Post
                 </a>
             </div>

@@ -33,7 +33,7 @@
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-8">
                     <a href="/blogcms/index.php" class="text-2xl text-[#121212] font-bold">
-                        <i class="fas text-[28px] fa-blog mr-2"></i>BlogCMS
+                        <img src="/css/blogcmslogo.png" alt="logo" class="w-[120px]">
                     </a>
                     
                 </div>
@@ -42,7 +42,7 @@
                     <?php if (isLoggedIn()): ?>
                         <span class="hidden text-black md:inline">
                             Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>
-                            <span class="bg-blue-500 text-xs px-2 py-1 rounded ml-2">
+                            <span class="bg-[#8A6F4E] text-white text-xs px-2 py-1 rounded ml-2">
                                 <?php echo ucfirst($_SESSION['role']); ?>
                             </span>
                         </span>
@@ -50,7 +50,7 @@
                             <i class="fas fa-sign-out-alt mr-1"></i> Logout
                         </a>
                     <?php else: ?>
-                        <a href="/login.php" class="bg-[#2E2E2E] hover:bg-[#2E2E2E] px-4 py-2 rounded">
+                        <a href="/login.php" class="bg-[#8A6F4E] hover:bg-[#6d5538] px-4 py-2 rounded">
                             <i class="fas fa-sign-in-alt mr-1"></i> Login
                         </a>
                     <?php endif; ?>

@@ -52,39 +52,12 @@ if ($filter != 'all') {
     $stmt->execute();
 }
 $comments = $stmt->fetchAll();
-
-// Get counts for filters
-/* $counts = [
-    'all' => getCommentCount(),
-    'pending' => getCommentCount('pending'),
-    'approved' => getCommentCount('approved'),
-    'spam' => getCommentCount('spam')
-];*/
-
 ?>
 
 <div class="max-w-7xl mx-auto">
     <h1 class="text-2xl font-bold text-gray-800 mb-6">
         <i class="fas fa-comments mr-2"></i>Comments Management
     </h1>
-
-    <!-- Filter Tabs -->
-    <div class="bg-white rounded-lg shadow mb-6">
-        <div class="border-b">
-            <nav class="flex -mb-px">
-                <?php foreach (['all', 'pending', 'approved', 'spam'] as $status): ?>
-                    <a href="?filter=<?php echo $status; ?>" 
-                       class="py-4 px-6 text-center border-b-2 font-medium text-sm 
-                              <?php echo $filter == $status ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'; ?>">
-                        <?php echo ucfirst($status); ?>
-                        <span class="ml-2 bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">
-                            <?php echo $counts[$status]; ?>
-                        </span>
-                    </a>
-                <?php endforeach; ?>
-            </nav>
-        </div>
-    </div>
 
     <!-- Comments Table -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
@@ -119,8 +92,8 @@ $comments = $stmt->fetchAll();
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900">
-                                    <a href="../public/view_post.php?id=<?php echo $comment['id_post']; ?>" 
-                                       class="text-blue-600 hover:text-blue-900">
+                                    <a href="../visitor/view_post.php?id=<?php echo $comment['id_post']; ?>" 
+                                       class="text-[#7A8F6A] hover:text-[#3F5B45]">
                                         <?php echo htmlspecialchars($comment['post_title']); ?>
                                     </a>
                                 </div>
