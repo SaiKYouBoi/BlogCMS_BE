@@ -5,7 +5,7 @@ require_once __DIR__ . '/../config/database.php';
 // connect to database
 $pdo = getDBConnection();
 
-// ------------------- LOGIN -------------------
+//login
 function login($email, $password) {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM USERS WHERE email = ?");

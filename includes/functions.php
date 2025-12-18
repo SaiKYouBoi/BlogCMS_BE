@@ -37,3 +37,38 @@ function getFlashMessage() {
 function formatDate($date) {
     return date('F j, Y', strtotime($date));
 }
+
+
+function getPostCount($status = null) {
+    global $pdo;
+    $sql = "SELECT COUNT(*) as count FROM POST";
+    if ($status) {
+        $sql .= " WHERE status = ?";
+        $stmt = $pdo->prepare(query: $sql);
+        $stmt->execute([$status]);
+    } else {
+        $stmt = $pdo->query($sql);
+    }
+    return $stmt->fetch()['count'];
+
+}
+
+function getCommentCount($status = null) {
+    global $pdo;
+    $sql = "SELECT COUNT(*) as count FROM COMMENTS";
+    if ($status) {
+        $sql .= " WHERE status = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$status]);
+    } else {
+        $stmt = $pdo->query($sql);
+    }
+    return $stmt->fetch()['count'];
+}
+
+function getUserCount() {
+    global $pdo;
+    $stmt = $pdo->query("SELECT COUNT(*) as count FROM USERS");
+    return $stmt->fetch()['count'];
+}
+?>

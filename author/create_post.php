@@ -1,16 +1,16 @@
 <?php
 require_once '../includes/header.php';
 
-// Redirect if not author
+// redirect if not author
 if (!isAuthor()) {
     redirect('../index.php', 'Access denied!', 'error');
 }
 
-// Get categories
+// get categories
 $stmt = $pdo->query("SELECT * FROM CATEGORY ORDER BY name");
 $categories = $stmt->fetchAll();
 
-// Handle form submission
+//form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = sanitize($_POST['title']);
     $content = $_POST['content'];
@@ -46,14 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// For edit mode
+// edit mode
 $post = null;
 if (isset($_GET['edit'])) {
     $stmt = $pdo->prepare("SELECT * FROM POST WHERE id_post = ?");
     $stmt->execute([$_GET['edit']]);
     $post = $stmt->fetch();
     
-    // Check if user can edit this post
+    // check if user can edit this post
     if ($post && !isAdmin() && !isEditor() && $post['id_user'] != getUserId()) {
         redirect('my_posts.php', 'You can only edit your own posts!', 'error');
     }
@@ -76,7 +76,7 @@ if (isset($_GET['edit'])) {
             <input type="hidden" name="id_post" value="<?php echo $post['id_post']; ?>">
         <?php endif; ?>
         
-        <!-- Title -->
+        <!-- title -->
         <div class="mb-6">
             <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
                 Post Title *
@@ -86,7 +86,7 @@ if (isset($_GET['edit'])) {
                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
         </div>
         
-        <!-- Category -->
+        <!-- category -->
         <div class="mb-6">
             <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
                 Category *
@@ -103,7 +103,7 @@ if (isset($_GET['edit'])) {
             </select>
         </div>
         
-        <!-- Content -->
+        <!-- content -->
         <div class="mb-6">
             <label for="content" class="block text-sm font-medium text-gray-700 mb-2">
                 Content *
@@ -115,7 +115,7 @@ if (isset($_GET['edit'])) {
             </p>
         </div>
         
-        <!-- Status -->
+        <!-- status -->
         <div class="mb-6">
             <label for="status" class="block text-sm font-medium text-gray-700 mb-2">
                 Status
@@ -128,7 +128,7 @@ if (isset($_GET['edit'])) {
             </select>
         </div>
         
-        <!-- Actions -->
+        <!-- actions -->
         <div class="flex justify-end space-x-4">
             <a href="my_posts.php" 
                class="bg-gray-500 hover:bg-gray-700 text-white px-6 py-2 rounded-lg">

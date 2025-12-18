@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Get all categories
+// get all categories
 $stmt = $pdo->query("SELECT c.*, COUNT(p.id_post) as post_count 
                      FROM CATEGORY c 
                      LEFT JOIN POST p ON c.id_category = p.id_category 
@@ -56,7 +56,7 @@ $stmt = $pdo->query("SELECT c.*, COUNT(p.id_post) as post_count
                      ORDER BY c.name");
 $categories = $stmt->fetchAll();
 
-// For edit mode
+//edit mode
 $editCategory = null;
 if (isset($_GET['edit'])) {
     $stmt = $pdo->prepare("SELECT * FROM CATEGORY WHERE id_category = ?");
@@ -76,7 +76,7 @@ if (isset($_GET['edit'])) {
         </button>
     </div>
 
-    <!-- Categories Table -->
+    <!-- categories table -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
@@ -124,7 +124,7 @@ if (isset($_GET['edit'])) {
     </div>
 </div>
 
-<!-- Add/Edit Category Modal -->
+<!-- add/edit Category Modal -->
 <div id="addCategoryModal" class="<?php echo $editCategory ? '' : 'hidden'; ?> fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
     <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
         <div class="flex justify-between items-center mb-4">
@@ -179,7 +179,7 @@ if (isset($_GET['edit'])) {
     </div>
 </div>
 
-<!-- Delete Confirmation Modal -->
+<!-- delete confirmation Modal -->
 <div id="deleteModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
     <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
         <div class="text-center">
@@ -222,7 +222,6 @@ function closeDeleteModal() {
     document.getElementById('deleteModal').classList.add('hidden');
 }
 
-// Close modal when clicking outside
 window.onclick = function(event) {
     const addModal = document.getElementById('addCategoryModal');
     const deleteModal = document.getElementById('deleteModal');

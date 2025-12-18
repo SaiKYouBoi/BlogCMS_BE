@@ -76,10 +76,10 @@
         </div>
     </nav>
 
-    <!-- Flash Messages -->
+    <!-- flash Messages -->
     <div class="container mx-auto px-4 mt-4">
         <?php echo getFlashMessage(); ?>
     </div>
 
-    <!-- Main Content -->
+    <!-- main Content -->
     <div class="container mx-auto px-4 py-2">

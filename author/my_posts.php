@@ -1,12 +1,12 @@
 <?php
 require_once '../includes/header.php';
 
-// Redirect if not author
+// redirect if not author
 if (!isAuthor()) {
     redirect('../index.php', 'Access denied!', 'error');
 }
 
-// Get author's posts
+// get author's posts
 $stmt = $pdo->prepare("
     SELECT p.*, c.name as category_name 
     FROM POST p 

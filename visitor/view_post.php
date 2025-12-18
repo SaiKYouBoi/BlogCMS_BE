@@ -8,7 +8,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $postId = (int)$_GET['id'];
 
-// Get post
+// get post
 $stmt = $pdo->prepare("
     SELECT p.*, u.username, u.email, c.name as category_name 
     FROM POST p 
@@ -23,7 +23,7 @@ if (!$post) {
     redirect('posts.php', 'Post not found or not published!', 'error');
 }
 
-// Increment view count
+// increment view count
 $stmt = $pdo->prepare("UPDATE POST SET view_count = view_count + 1 WHERE id_post = ?");
 $stmt->execute([$postId]);
 
@@ -53,7 +53,7 @@ $comments = $stmt->fetchAll();
 
 ?>
 <div class="max-w-4xl mx-auto">
-    <!-- Post Header -->
+    <!-- post Header -->
     <div class="bg-white rounded-lg shadow p-6 mb-6">
         <div class="flex justify-between items-start mb-4">
             <div>
@@ -72,7 +72,7 @@ $comments = $stmt->fetchAll();
             <?php endif; ?>
         </div>
         
-        <!-- Post Meta -->
+        <!-- post Meta -->
         <div class="flex flex-wrap items-center text-gray-600 text-sm mb-6 space-x-4">
             <span>
                 <i class="fas fa-user mr-1"></i>
@@ -95,7 +95,7 @@ $comments = $stmt->fetchAll();
         </div>
     </div>
 
-    <!-- Post Content -->
+    <!-- post Content -->
     <div class="bg-white rounded-lg shadow p-6 mb-6">
         <div class="prose max-w-none">
             <?php echo nl2br(htmlspecialchars($post['content'])); ?>

@@ -1,12 +1,12 @@
 <?php
 require_once '../includes/header.php';
 
-// Redirect if not admin/editor
+// redirect if not admin/editor
 if (!isAdmin() && !isEditor()) {
     redirect('../index.php', 'Access denied!', 'error');
 }
 
-// Handle comment actions
+// handle comment actions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['approve_comment'])) {
         $id = $_POST['id_comment'];
@@ -30,10 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Get filter
+// get filter
 $filter = $_GET['filter'] ?? 'all';
 
-// Build query based on filter
+// build query based on filter
 $query = "SELECT c.*, p.title as post_title, u.username 
           FROM COMMENTS c 
           LEFT JOIN POST p ON c.id_post = p.id_post 

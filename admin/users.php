@@ -1,12 +1,12 @@
 <?php
 require_once '../includes/header.php';
 
-// Redirect if not admin
+// redirect if not admin
 if (!isAdmin()) {
     redirect('../index.php', 'Access denied!', 'error');
 }
 
-// Handle user operations
+//user operations
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['add_user'])) {
         $username = sanitize($_POST['username']);
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = $_POST['password'];
         $role = sanitize($_POST['role']);
         
-        // Check if email already exists
+        //check if email already exists
         $stmt = $pdo->prepare("SELECT id_user FROM USERS WHERE email = ?");
         $stmt->execute([$email]);
         
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = sanitize($_POST['email']);
         $role = sanitize($_POST['role']);
         
-        // Check if email exists for another user
+        // check if email exists for another user
         $stmt = $pdo->prepare("SELECT id_user FROM USERS WHERE email = ? AND id_user != ?");
         $stmt->execute([$email, $id]);
         
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['delete_user'])) {
         $id = $_POST['id_user'];
         
-        // Don't allow deleting yourself
+        // not allowing deleting yourself
         if ($id == getUserId()) {
             redirect('users.php', 'You cannot delete your own account!', 'error');
         }
@@ -70,11 +70,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Get all users
+//all users
 $stmt = $pdo->query("SELECT * FROM USERS ORDER BY inscription_date DESC");
 $users = $stmt->fetchAll();
 
-// For edit mode
+//edit mode
 $editUser = null;
 if (isset($_GET['edit'])) {
     $stmt = $pdo->prepare("SELECT * FROM USERS WHERE id_user = ?");
@@ -93,7 +93,7 @@ if (isset($_GET['edit'])) {
         </button>
     </div>
 
-    <!-- Users Table -->
+    <!-- users table -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
@@ -156,7 +156,7 @@ if (isset($_GET['edit'])) {
     </div>
 </div>
 
-<!-- Add/Edit User Modal -->
+<!-- add/edit User Modal -->
 <div id="addUserModal" class="<?php echo $editUser ? '' : 'hidden'; ?> fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
     <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
         <div class="flex justify-between items-center mb-4">
@@ -241,7 +241,7 @@ if (isset($_GET['edit'])) {
     </div>
 </div>
 
-<!-- Delete Confirmation Modal -->
+<!-- delete confirmation Modal -->
 <div id="deleteModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
     <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
         <div class="text-center">
@@ -284,7 +284,7 @@ function closeDeleteModal() {
     document.getElementById('deleteModal').classList.add('hidden');
 }
 
-// Close modal when clicking outside
+// close modal when clicking outside
 window.onclick = function(event) {
     const addModal = document.getElementById('addUserModal');
     const deleteModal = document.getElementById('deleteModal');

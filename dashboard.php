@@ -1,18 +1,18 @@
 <?php
 require_once 'includes/header.php';
 
-// Redirect if not admin/editor
+// redirect if not admin/editor
 if (!isAdmin() && !isEditor()) {
     redirect('index.php', 'Access denied!', 'error');
 }
 
 //statistics
-//$totalPosts = getPostCount();
-//$publishedPosts = getPostCount('published');
-//$draftPosts = getPostCount('draft');
-//$totalComments = getCommentCount();
-//$pendingComments = getCommentCount('pending');
-//$totalUsers = getUserCount();
+$totalPosts = getPostCount();
+$publishedPosts = getPostCount('published');
+$draftPosts = getPostCount('draft');
+$totalComments = getCommentCount();
+$pendingComments = getCommentCount('pending');
+$totalUsers = getUserCount();
 
 //recent posts
 $stmt = $pdo->prepare("
@@ -89,9 +89,9 @@ $recentComments = $stmt->fetchAll();
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- main Content -->
     <div class="lg:col-span-3">
-        <!-- Welcome -->
+        
         <div class="bg-white rounded-lg shadow p-6 mb-6">
             <h1 class="text-2xl font-bold text-gray-800 mb-2">
                 <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
@@ -102,9 +102,9 @@ $recentComments = $stmt->fetchAll();
             </p>
         </div>
 
-        <!-- Statistics Cards -->
+        <!-- statistics Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            <!-- Posts Card -->
+            <!-- posts Card -->
             <div class="bg-white rounded-lg shadow p-6">
                 <div class="flex items-center">
                     <div class="bg-blue-100 p-3 rounded-lg">
@@ -127,7 +127,7 @@ $recentComments = $stmt->fetchAll();
                 </div>
             </div>
 
-            <!-- Comments Card -->
+            <!-- comments card -->
             <div class="bg-white rounded-lg shadow p-6">
                 <div class="flex items-center">
                     <div class="bg-green-100 p-3 rounded-lg">
@@ -144,7 +144,7 @@ $recentComments = $stmt->fetchAll();
                 </div>
             </div>
 
-            <!-- Users Card -->
+            <!-- users card -->
             <div class="bg-white rounded-lg shadow p-6">
                 <div class="flex items-center">
                     <div class="bg-purple-100 p-3 rounded-lg">
@@ -162,7 +162,7 @@ $recentComments = $stmt->fetchAll();
             </div>
         </div>
 
-        <!-- Recent Posts & Comments -->
+        <!-- recent Posts & Comments -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Recent Posts -->
             <div class="bg-white rounded-lg shadow p-6">
@@ -212,7 +212,7 @@ $recentComments = $stmt->fetchAll();
                 </div>
             </div>
 
-            <!-- Recent Comments -->
+            <!-- recent comments -->
             <div class="bg-white rounded-lg shadow p-6">
                 <h3 class="text-lg font-bold text-gray-800 mb-4">
                     <i class="fas fa-comment-dots mr-2"></i>Recent Comments
