@@ -64,4 +64,3 @@ function register($username, $email, $password, $role) {
     return $stmt->execute([$username, $email, $hashedPassword, $role]);
 }
 ?>
-

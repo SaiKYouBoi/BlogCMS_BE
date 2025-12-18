@@ -17,7 +17,7 @@ $stmt = $pdo->prepare("
 $stmt->execute([getUserId()]);
 $posts = $stmt->fetchAll();
 ?>
-<div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto h-[65vh]">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold text-gray-800">
             <i class="fas fa-file-alt mr-2"></i>My Posts

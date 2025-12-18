@@ -121,7 +121,7 @@ $comments = $stmt->fetchAll();
             </div>
         <?php endif; ?>
 
-        <!-- Comment Form -->
+        <!-- comment form -->
         <div class="mb-8">
             <h4 class="text-lg font-semibold text-gray-700 mb-3">Leave a Comment</h4>
             <form method="POST">
@@ -142,7 +142,7 @@ $comments = $stmt->fetchAll();
             </form>
         </div>
 
-        <!-- Comments List -->
+        <!-- comments list -->
         <?php if (!empty($comments)): ?>
             <div class="space-y-6">
                 <?php foreach ($comments as $comment): ?>

@@ -41,28 +41,29 @@
                 </div>
                 <?php if (isLoggedIn()): ?>
                 <?php if (isAdmin() || isEditor()): ?>
-                <div class="flex gap-8">
-                    <a href="/index.php" class="text-[#856444] text-[18px]">Home</a>
-                    <a href="/categories.php" class="text-[#856444] text-[18px]">Categories</a>
+                <div class="flex gap-8 ml-14">
+                    <a href="/index.php" class="text-[#856444] text-[18px] hover:font-semibold transition">Home</a>
+                    <a href="/categories.php" class="text-[#856444] text-[18px] hover:font-semibold transition">Categories</a>
                 <?php endif; ?>
                 <?php if (isAdmin() || isEditor()): ?>
-                    <a href="/dashboard.php" class="text-[#856444] text-[18px]">Dashaboard</a>
+                    <a href="/dashboard.php" class="text-[#856444] text-[18px] hover:font-semibold transition">Dashaboard</a>
                 <?php endif; ?>
                 <?php if (isAuthor()): ?>
-                    <a href="/author/my_posts.php" class="text-[#856444] text-[18px]">My Posts</a>
+                    <a href="/author/my_posts.php" class="text-[#856444] text-[18px] hover:font-semibold transition">My Posts</a>
                 <?php endif; ?>
                 </div>
                 <?php endif; ?>
 
                 <div class="flex items-center space-x-4">
                     <?php if (isLoggedIn()): ?>
-                    <span class="hidden text-black md:inline">
+                    <span class="hidden text-[12px] text-black md:inline">
                         <?php echo htmlspecialchars($_SESSION['username']); ?>
-                        <span class="bg-[#8A6F4E] text-white text-xs px-2 py-1 rounded ml-2">
+                        <span class="bg-[#8A6F4E] text-[10px] text-white px-2 py-1 rounded ml-2">
                             <?php echo ucfirst($_SESSION['role']); ?>
                         </span>
                     </span>
-                    <a href="/logout.php" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded">
+
+                    <a href="/logout.php" class="bg-red-500 hover:bg-red-600 px-5 py-2 rounded-[30px]">
                         <i class="fas fa-sign-out-alt mr-1"></i> Logout
                     </a>
                     <?php else: ?>
@@ -74,7 +75,6 @@
             </div>
         </div>
     </nav>
-
 
     <!-- Flash Messages -->
     <div class="container mx-auto px-4 mt-4">

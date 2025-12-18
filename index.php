@@ -32,7 +32,7 @@ $Posts = $stmt->fetchAll();
                 <?php foreach ($Posts as $post): ?>
                     <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
                         <div class="p-4">
-                            <img src="https://imgs.search.brave.com/hH9H87HsbBD_tHKCFcqersGyNW4p6etxy9-G3SZ850E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pbmZvbmV0LmZy/L25vdXZlYXV0ZS10/ZWNobm9sb2dpcXVl/LTIwMjQtMi02NWM5/Y2RhOGUwYWE2Lmpw/Zw" alt="" class="mb-2 border rounded-lg">
+                            <img src="<?php echo htmlspecialchars($post['image_url']); ?>" alt="" class="mb-2 border rounded-lg w-full h-[270px]">
                             <span class="inline-block bg-[#E6EBDF] text-[#3F4A3E] text-xs px-2 py-1 rounded mb-2">
                                 <?php echo htmlspecialchars($post['category_name']); ?>
                             </span>
