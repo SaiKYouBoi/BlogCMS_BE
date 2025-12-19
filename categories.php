@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['delete_category'])) {
         $id = $_POST['id_category'];
         
-        // Check if category has posts
+        // check if category has posts
         $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM POST WHERE id_category = ?");
         $stmt->execute([$id]);
         $result = $stmt->fetch();

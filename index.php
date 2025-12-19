@@ -4,7 +4,7 @@ require_once 'includes/header.php';
 $stmt = $pdo->prepare("
     SELECT p.*, u.username, c.name as category_name 
     FROM POST p 
-    JOIN USERS u ON p.id_user = u.id_user 
+    LEFT JOIN USERS u ON p.id_user = u.id_user 
     JOIN CATEGORY c ON p.id_category = c.id_category 
 ");
 
@@ -48,7 +48,7 @@ $Posts = $stmt->fetchAll();
                             <div class="flex justify-between items-center text-sm text-gray-500">
                                 <span>
                                     <i class="fas fa-user mr-1"></i>
-                                    <?php echo htmlspecialchars($post['username']); ?>
+                                    <?php echo htmlspecialchars($post['username'] ?? "Anonymous"); ?>
                                 </span>
                                 
                             </div>
